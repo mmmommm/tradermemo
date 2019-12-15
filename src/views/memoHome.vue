@@ -8,15 +8,15 @@
                             <v-card-text>
                                 <v-layout>
                                     <v-btn outlined class="button ml-2 mt-6" :to="{ name: 'memo-detail', params: { memo: memo.slug }}">viewmemo</v-btn>
-                                    <!-- <v-btn outlined class="button ml-12 mt-6" @click="deleteMemo">deletememo</v-btn> -->
+                                    <v-btn outlined class="button ml-12 mt-6" @click="deleteMemo">deletememo</v-btn>
                                 </v-layout>
                             </v-card-text>
                         </v-card>
                     </div>
             </v-layout> 
-            <v-layout justify-center class="mt-10">
+            <!-- <v-layout justify-center class="mt-10">
                 <v-btn to="/addMemo" x-large color="white">Add</v-btn>
-            </v-layout>
+            </v-layout> -->
         </v-container>
     </v-img>
 </template>
@@ -25,7 +25,7 @@
 import db from "../../firebaseInit"
 
 export default {
-    name:'home',
+    name:'memo-home',
     data(){
         return {
             memos: [],
@@ -40,17 +40,18 @@ export default {
         this.memos = array
         });
     },
-    // methods:{
-    //     deleteMemo: function(){
-    //         db.collection('memos').doc('memo.slug').delete().then(function(){
-    //             // eslint-disable-next-line no-console
-    //             console.log("document successfully deleted!");
-    //         }).catch(function(error){
-    //             // eslint-disable-next-line no-console
-    //             console.log("error removing document:", error);
-    //         });
-    //     }
-    // }
+    methods:{
+        deleteMemo: function(){
+            alert('元に戻せないですがよろしいですか？');
+            // db.collection('memos').doc('memo.slug').delete().then(function(){
+            //     // eslint-disable-next-line no-console
+            //     console.log("document successfully deleted!");
+            // }).catch(function(error){
+            //     // eslint-disable-next-line no-console
+            //     console.log("error removing document:", error);
+            // });
+        }
+    }
 }
 </script>
 <style scoped>

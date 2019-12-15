@@ -78,7 +78,7 @@
               <v-card-title>感想・反省</v-card-title>
               <textarea v-model="reason" cols="60" rows="25" class="ml-4" placeholder="感想・反省これから気をつけることなど"></textarea>
               <br>
-              <v-btn type="submit" x-large class="ml-12">Add</v-btn>
+              <v-btn type="submit" x-large class="ml-12">Addmemo</v-btn>
             </v-card>
       </div>
     </v-layout>
@@ -89,7 +89,7 @@
 <script>
 import db from '../../firebaseInit'
 export default {
-  name: "add-memo",
+  name: "memo-add",
   data(){
     return{
       date: null,
