@@ -116,7 +116,7 @@ export default {
       reason: null,
     }
   },
-  methods:{ 
+  methods:{
         saveMemo(){
           const slug = this.generateUUID()
           db.collection('memos').add({

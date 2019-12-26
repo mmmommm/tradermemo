@@ -4,11 +4,11 @@
     <div>
       <v-container>
         <v-layout justify-center>
-          <v-card shaped raised="true" outlined width="800px" height="600px" class="mt-12">
+          <v-card shaped raised outlined width="800px" height="600px" class="mt-12">
             <v-layout justify-center>
               <v-card-title class="font-weight-bold my-8 headline">REGISTER</v-card-title>
             </v-layout>
-            <v-form v-model="valid">
+            <v-form>
               <v-card-subtitle class="title ml-12">Email</v-card-subtitle>
               <v-text-field
                 class="px-12"

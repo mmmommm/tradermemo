@@ -5,42 +5,82 @@ import memoHome from '@/views/memoHome.vue';
 import memoDetail from '@/components/memoDetail.vue';
 import memoLogin from '@/views/memoLogin.vue';
 import memoRegister from '@/views/memoRegister.vue';
-// import store from '../store';
+ import store from '@/store/index.js';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: memoHome
+    name: 'memo-login',
+    component: memoLogin,
+    beforeEnter(to, from, next) {
+      if (store.getters.idToken) {
+        next('/memoHome');
+      } else {
+        next();
+      }
+    }
   },
   {
     path: '/memoAdd',
     name: 'memo-add',
-    component: memoAdd
+    component: memoAdd,
+    beforeEnter(to, from, next) {
+      if(store.getters.idToken) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
-    path: '/memoLogin',
-    name: 'memo-login',
-    component: memoLogin
+    path: '/home',
+    name: 'home',
+    component: memoHome,
+    beforeEnter(to, from, next) {
+      if (store.getters.idToken) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
   {
     path: '/memoRegister',
     name: 'memo-register',
-    component: memoRegister
+    component: memoRegister,
+    beforeEnter(to, from, next) {
+      if (store.getters.idToken) {
+        next('/memoHome');
+      } else {
+        next();
+      }
+    }
   },
   {
     path: '/:memo',
     name: 'memo-detail',
-    component: memoDetail
+    component: memoDetail,
+    beforeEnter(to, from, next) {
+      if (store.getters.idToken) {
+        next();
+      } else {
+        next('/');
+      }
+    }
   },
-]
+  {
+    path: '*',
+    redirect: '/'
+  }
+];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+
 })
 
 export default router

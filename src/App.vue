@@ -7,7 +7,7 @@
       <v-spacer></v-spacer>
       <template v-if="isAuthenticated">
         <div class="my-2">
-          <v-btn to="/" text x-large>Home</v-btn>
+          <v-btn to="/memoHome" text x-large>Home</v-btn>
         </div>
         <div class="my-2">
           <v-btn to="/memoAdd" text x-large>Add</v-btn>
@@ -18,7 +18,7 @@
       </template>
       <template v-if="!isAuthenticated">
         <div class="my-2">
-          <v-btn to="/memoLogin" text x-large>Login</v-btn>
+          <v-btn to="/" text x-large>Login</v-btn>
         </div>
         <div class="my-2">
           <v-btn to="/memoRegister" text x-large>Register</v-btn>
