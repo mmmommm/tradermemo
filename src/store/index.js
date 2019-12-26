@@ -50,7 +50,7 @@ export default new Vuex.Store({
            expiresIn: response.data.expiresIn,
            refreshToken: response.data.refreshToken,
          });
-        router.push('/');
+        router.push('/memoHome');
       });
     },
     logout({ commit }) {

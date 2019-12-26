@@ -13,7 +13,7 @@
                             </v-card-text>
                         </v-card>
                     </div>
-            </v-layout> 
+            </v-layout>
             <!-- <v-layout justify-center class="mt-10">
                 <v-btn to="/addMemo" x-large color="white">Add</v-btn>
             </v-layout> -->

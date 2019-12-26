@@ -76,7 +76,8 @@
       </v-card>
       <v-card width="600px">
           <v-card-title>感想・反省</v-card-title>
-          <v-card-text class="ml-4">{{ reason }}</v-card-text>
+          <v-card-text class="ml-4" cols="60" rows="25">{{ reason }}</v-card-text>
+          <v-btn type="submit" x-large class="ml-12" to='/'>Editmemo</v-btn>
       </v-card>
     </div>
   </div>
