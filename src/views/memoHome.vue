@@ -2,7 +2,7 @@
     <v-img src="@/assets/portfolio.jpg" height="770">
         <v-container>
             <v-layout justify-space-around wrap>
-                    <div v-for="(memo, index) in memos" :key="index">    
+                    <div v-for="(memo, index) in memos" :key="index">
                         <v-card width="350" height="150" class="my-5">
                             <v-card-title class="ml-6">{{ memo.date }}</v-card-title>
                             <v-card-text>
