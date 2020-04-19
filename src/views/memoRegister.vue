@@ -34,7 +34,7 @@
             </v-form>
             <br><br>
             <v-layout justify-center>
-              <v-btn outlined rounded x-large @click="submit">register</v-btn>
+              <v-btn outlined rounded x-large @click="register">register</v-btn>
             </v-layout>
           </v-card>
         </v-layout>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { firebaseauth } from '@/firebase/firebaseAuth.js'
+import { firebaseauth } from '../firebase/firebaseAuth.js';
 export default {
   data: () => ({
       email: '',
@@ -60,7 +60,7 @@ export default {
       ]
   }),
   methods: {
-    submit() {
+    register() {
       firebaseauth
         //firebaseAuth.jsでfirebase.auth()まで書いてあるのでここから
         .createUserWithEmailAndPassword(this.email, this.password)
