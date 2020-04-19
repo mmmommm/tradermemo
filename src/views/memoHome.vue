@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import db from "../../firebaseInit"
+import firestore from "../firebase/fireStore.js";
 
 export default {
     name:'memo-home',
@@ -32,7 +32,7 @@ export default {
         }
     },
     created(){
-        db.collection('memos').get().then((querySnapshot) => {
+        firestore.collection('memos').get().then((querySnapshot) => {
         const array = [];
         querySnapshot.forEach((doc) => {
             array.push(doc.data())
@@ -43,7 +43,7 @@ export default {
     methods:{
         deleteMemo: function(){
             alert('元に戻せないですがよろしいですか？');
-            // db.collection('memos').doc('memo.slug').delete().then(function(){
+            // firestore.collection('memos').doc('memo.slug').delete().then(function(){
             //     // eslint-disable-next-line no-console
             //     console.log("document successfully deleted!");
             // }).catch(function(error){

@@ -34,7 +34,7 @@
             </v-form>
             <br><br>
             <v-layout justify-center>
-              <v-btn outlined rounded x-large @click="login">log in</v-btn>
+              <v-btn outlined rounded x-large @click="submit">log in</v-btn>
             </v-layout>
           </v-card>
         </v-layout>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { firebaseauth } from '@/firebase/firebaseAuth.js'
 export default {
   data: () => ({
       email: '',
@@ -59,13 +60,18 @@ export default {
       ]
   }),
   methods: {
-    login() {
-      this.$store.dispatch('login', {
-        email: this.email,
-        password: this.password
-      });
-      this.email = '';
-      this.password = '';
+    submit() {
+      firebaseauth
+      //firebaseAuth.jsでfirebase.auth()まで書いてあるのでここから
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(data => {
+          //成功したらemailとpasswordを空に
+          data.email = '';
+          data.password = '';
+          //成功したらホームにリダイレクト
+          this.$router.push('/memoHome');
+        })
+        .catch(() => {})
     }
   }
 };
