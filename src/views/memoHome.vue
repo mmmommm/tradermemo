@@ -22,8 +22,7 @@
 </template>
 
 <script>
-import firestore from "../firebase/fireStore.js";
-
+import { firestore } from "../firebase/fireStore.js";
 export default {
     name:'memo-home',
     data(){
