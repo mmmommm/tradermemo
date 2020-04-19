@@ -34,7 +34,7 @@
             </v-form>
             <br><br>
             <v-layout justify-center>
-              <v-btn outlined rounded x-large @click="register">register</v-btn>
+              <v-btn outlined rounded x-large @click="submit">register</v-btn>
             </v-layout>
           </v-card>
         </v-layout>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { firebaseauth } from '@/firebase/firebaseAuth.js'
 export default {
   data: () => ({
       email: '',
@@ -59,13 +60,18 @@ export default {
       ]
   }),
   methods: {
-    register() {
-      this.$store.dispatch('register', {
-        email: this.email,
-        password: this.password
-      });
-      this.email = '';
-      this.password = '';
+    submit() {
+      firebaseauth
+        //firebaseAuth.jsでfirebase.auth()まで書いてあるのでここから
+        .createUserWithEmailAndPassword(this.email, this.password)
+        .then(data => {
+          //成功したらemailとpasswordを空に
+          data.email = '';
+          data.password = '';
+          //成功したらホームにリダイレクト
+          this.$router.push('/memoHome');
+        })
+        .catch(() => {});
     }
   }
 };
