@@ -23,7 +23,6 @@
 
 <script>
 import { firestore } from "../firebase/fireStore.js";
-
 export default {
     name:'memo-home',
     data(){
@@ -43,7 +42,7 @@ export default {
     methods:{
         deleteMemo: function(){
             alert('元に戻せないですがよろしいですか？');
-            // db.collection('memos').doc('memo.slug').delete().then(function(){
+            // firestore.collection('memos').doc('memo.slug').delete().then(function(){
             //     // eslint-disable-next-line no-console
             //     console.log("document successfully deleted!");
             // }).catch(function(error){

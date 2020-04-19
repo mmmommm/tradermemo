@@ -34,7 +34,7 @@
             </v-form>
             <br><br>
             <v-layout justify-center>
-              <v-btn outlined rounded x-large @click="register">register</v-btn>
+              <v-btn outlined rounded x-large @click="submit">register</v-btn>
             </v-layout>
           </v-card>
         </v-layout>
@@ -69,7 +69,7 @@ export default {
           data.email = '';
           data.password = '';
           //成功したらホームにリダイレクト
-          this.$router.push('/');
+          this.$router.push('/memoHome');
         })
         .catch(() => {});
     }
