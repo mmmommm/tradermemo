@@ -34,7 +34,7 @@
             </v-form>
             <br><br>
             <v-layout justify-center>
-              <v-btn outlined rounded x-large @click="submit">log in</v-btn>
+              <v-btn outlined rounded x-large @click="login">log in</v-btn>
             </v-layout>
           </v-card>
         </v-layout>
