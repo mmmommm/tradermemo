@@ -87,7 +87,7 @@
   </v-app>
 </template>
 <script>
-import db from '../../firebaseInit'
+import { firestore } from "../firebase/fireStore.js";
 export default {
   name: "memo-add",
   data(){
@@ -119,7 +119,7 @@ export default {
   methods:{
         saveMemo(){
           const slug = this.generateUUID()
-          db.collection('memos').add({
+          firestore.collection('memos').add({
             date: this.date,
             code_a: this.code_a,
             code_b: this.code_b,

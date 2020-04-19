@@ -87,7 +87,7 @@
 </v-app>
 </template>
 <script>
-import db from "../../firebaseInit"
+import { firestore } from "../firebase/fireStore.js";
 
 export default {
   name: "memo-edit",
@@ -119,7 +119,7 @@ export default {
     }
   },
   beforeRouteEnter(to, from, next){
-      db.collection('memos').where('slug', '==', to.params.memo).get().then((querySnapshot) =>{
+      firestore.collection('memos').where('slug', '==', to.params.memo).get().then((querySnapshot) =>{
           querySnapshot.forEach((doc) =>{
               next(vm => {
                   vm.date = doc.data().date
@@ -154,7 +154,7 @@ export default {
   },
   methods:{
       fetchData(){
-          db.collection('memos').where('slug', '==', this.$route.params.memo).get().then((querySnapshot)=>{
+          firestore.collection('memos').where('slug', '==', this.$route.params.memo).get().then((querySnapshot)=>{
               querySnapshot.forEach((doc)=>{
                   // eslint-disable-next-line no-console
                   console.log(doc.id, '==', doc.data())

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import db from "../../firebaseInit"
+import { firestore } from "../firebase/fireStore.js";
 
 export default {
     name:'memo-home',
@@ -32,7 +32,7 @@ export default {
         }
     },
     created(){
-        db.collection('memos').get().then((querySnapshot) => {
+        firestore.collection('memos').get().then((querySnapshot) => {
         const array = [];
         querySnapshot.forEach((doc) => {
             array.push(doc.data())
