@@ -70,6 +70,8 @@ export default {
           data.password = '';
           //成功したらホームにリダイレクト
           this.$router.push('/memoHome');
+          //変数にidtokenを代入
+          // const idtoken = firebaseauth.currentUser.getIdToken();
         })
         .catch(() => {})
     }
